@@ -1,33 +1,71 @@
-# lumiva
+# Lumiva — Muhammad Salman Al Farizi
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+Portfolio of **Muhammad Salman Al Farizi (Lumiva)** — software engineer crafting dependable web products. Built with Next.js 16, Tailwind CSS 4, shadcn/ui (base-nova), and next-themes.
 
-## Built with v0
+**Live:** https://lumivax.vercel.app · **Contact:** hello@ryz.dev · **GitHub:** https://github.com/ItzRyz
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+## Stack
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_cx4lZZsDoyQpGx1fMoKIyw28F1wI)
+- **Framework:** Next.js 16 (App Router, RSC)
+- **Styling:** Tailwind CSS 4 + shadcn/tailwind
+- **UI:** Base UI + lucide-react + class-variance-authority
+- **Fonts:** Inter + JetBrains Mono (next/font, `display:swap`)
+- **Analytics:** @vercel/analytics
+- **Theme:** next-themes (system, `disableTransitionOnChange`)
+
+## Features
+
+- Sticky header with scroll shadow + scrollspy + accessible mobile overlay (Esc, focus trap, body lock)
+- Hero with grid pattern, pulse availability, layered profile card
+- Experience timeline, featured + grid projects with previews, skill levels
+- Contact with mailto form + honeypot + copy email
+- SEO: `metadataBase`, OG/Twitter, `sitemap.ts`, `robots.ts`, `manifest.ts`, dynamic `opengraph-image.tsx`, JSON-LD Person + WebSite
+- A11y: skip-link, `scroll-padding-top`, focus rings, `aria-hidden`, `prefers-reduced-motion`, `rel="noopener noreferrer"`
+- Perf: `next/image` AVIF/WebP, `optimizePackageImports: ['lucide-react']`, RSC page
+
+## Project Structure
+
+```
+app/
+  layout.tsx          # fonts, metadata, viewport, JSON-LD
+  page.tsx            # server composition of sections
+  globals.css         # tokens (brand separate from primary), smooth scroll
+  sitemap.ts / robots.ts / manifest.ts / opengraph-image.tsx
+components/
+  layout/header.tsx + theme-toggle.tsx + footer.tsx
+  sections/hero.tsx, about.tsx, experience.tsx, projects.tsx, skills.tsx, contact.tsx
+  ui/container.tsx, section-label.tsx, badge.tsx, card.tsx, button.tsx
+lib/data.ts           # typed projects/stack/experiences/siteConfig
+```
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
+# or
+npm install
+npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-## Learn More
+- `dev` — dev server
+- `build` — production build
+- `start` — production start
+- `typecheck` — `tsc --noEmit`
+- `lint` — `next lint`
 
-To learn more, take a look at the following resources:
+## Content Editing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+Edit `lib/data.ts` for projects/stack/experience/socials. Replace `public/resume.pdf` with real CV, `public/og-image.png` is generated via `app/opengraph-image.tsx` (edge). Social URLs in `lib/data.ts` → `socials`.
+
+## Deployment
+
+Vercel recommended. `next.config.mjs` enables `compress`, `poweredByHeader: false`, AVIF/WebP.
+
+## License
+
+MIT — © 2026 Lumiva
