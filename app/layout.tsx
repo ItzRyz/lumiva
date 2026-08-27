@@ -8,8 +8,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
-  title: 'Ryz — Software Engineer',
-  description: 'Portfolio of Ryz, a software engineer building dependable web products and backend systems.',
+  title: 'Lumiva — Muhammad Salman Al Farizi | Software Engineer',
+  description: 'Portfolio of Muhammad Salman Al Farizi, digitally known as Lumiva, a software engineer building dependable web products and backend systems.',
   generator: 'v0.app',
   icons: {
     icon: [
